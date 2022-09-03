@@ -20,7 +20,7 @@ import { MdOutlineFoodBank } from "react-icons/md";
 function CreateItemContainer() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("Categories");
   const [imgCapture, setImgCapture] = useState(null);
   const [formFields, setFormFields] = useState(false);
   const [status, setStatus] = useState("failed");
@@ -95,6 +95,14 @@ function CreateItemContainer() {
           setFormFields(false);
           setIsLoading(false);
         }, 4000);
+      } else if (category === "Categories") {
+        setFormFields(true);
+        setStatusMsg("Select a Valid Category");
+        setStatus("failed");
+        setTimeout(() => {
+          setFormFields(false);
+          setIsLoading(false);
+        }, 4000);
       } else {
         const data = {
           id: `${Date.now()}`,
@@ -130,7 +138,7 @@ function CreateItemContainer() {
   };
   const clearData = () => {
     setTitle("");
-    setCategory("default");
+    setCategory("Categories");
     setImgCapture(null);
     setPrice("");
   };
@@ -172,9 +180,10 @@ function CreateItemContainer() {
         <div className="w-full ">
           <select
             onChange={(e) => setCategory(e.target.value)}
+            value={category}
             className="py-2 px-3 min-w-full text-base text-slate-600 bg-white cursor-pointer outline-none rounded-md "
           >
-            <option value="default">Select Category</option>
+            <option value="Categories">Select Categories</option>
             {categories &&
               categories.map((cat) => (
                 <option
