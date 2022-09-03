@@ -17,7 +17,7 @@ function Card({ food }) {
       payload: food,
     });
   };
-  
+
   return (
     <>
       <li
@@ -32,8 +32,13 @@ function Card({ food }) {
         <div className="w-full flex flex-col gap-1 px-4  z-20 relative">
           <div className="w-full flex gap-2 text-slate-500 ">
             <div className="flex flex-col">
-              <span className="">Price: {food.price}</span>
-              <span>Qty: {food.qty}</span>
+              <span>
+                Price:{" "}
+                <span className="text-red-400">{food.price} &#8377;</span>
+              </span>
+              <span>
+                Quantity: <span className="text-red-400">{food.quantity}</span>
+              </span>
             </div>
           </div>
           <p className="text-xl pb-2">{food.title}</p>
