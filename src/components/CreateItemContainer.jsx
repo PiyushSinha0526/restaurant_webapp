@@ -151,17 +151,17 @@ function CreateItemContainer() {
     });
   };
   return (
-    <div className=" bg-slate-200 w-screen h-screen flex flex-col justify-center items-center border-2 relative">
+    <div className="bg-slate-200 w-screen h-screen flex flex-col justify-center items-center border-2 relative">
       {formFields && (
         <p
           className={`${
             status === "failed" ? "bg-red-500" : "bg-green-500"
-          } p-3 px-8 capitalize rounded-l-md absolute right-1 top-16`}
+          } p-3 px-8 capitalize rounded-l-md absolute right-1 top-20`}
         >
           {statusMsg}
         </p>
       )}
-      <div className="p-6 w-[90%] sm:w-[75%] max-w-xl border-2 border-slate-300 rounded-md flex flex-col gap-4 font-bold">
+      <div className="mt-10 p-6 w-[90%] sm:w-[75%] max-w-xl border-2 border-slate-300 rounded-md flex flex-col gap-4 font-bold">
         {/* title */}
         <div className="w-full border-b-2 border-white flex items-center gap-2 px-3">
           <div>
