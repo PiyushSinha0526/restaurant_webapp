@@ -19,7 +19,7 @@ import { getAllFoodItems } from "./utils/firestoreSave";
 function App() {
   const [{ foodItems }, dispatch] = useContext(Context);
   const [isLoading, setIsLoading] = useState(true);
-  const [showCart, setShowCart] = useState(false);
+  const [showCart, setShowCart] = useState(false)
 
   const fetchData = async () => {
     await getAllFoodItems().then((data) => {
@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div className="bg-slate-100 relative">
-      <Header setShowCart={setShowCart} />
+      <Header setShowCart={setShowCart}/>
       <Routes>
         <Route
           path="/"
@@ -73,7 +73,7 @@ function App() {
         />
         <Route path="/services" element={<Services />} />
       </Routes>
-      {showCart && <Cart setShowCart={setShowCart} />}
+        {showCart && <Cart setShowCart={setShowCart}/>}
     </div>
   );
 }
