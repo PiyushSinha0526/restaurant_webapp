@@ -27,7 +27,7 @@ function Card({ food }) {
         <img
           src={food.imgCapture}
           alt="90"
-          className="w-60 h-56 hover:scale-110 transition-all duration-300 ease-in-out"
+          className="object-contain w-60 h-56 hover:scale-110 transition-all duration-300 ease-in-out"
         />
         <div className="w-full flex flex-col gap-1 px-4  z-20 relative">
           <div className="w-full flex gap-2 text-slate-500 ">
