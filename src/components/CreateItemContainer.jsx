@@ -15,11 +15,13 @@ import { categories } from "../utils/categories";
 
 import { GrDocumentUpload } from "react-icons/gr";
 import { BiRupee } from "react-icons/bi";
+import { SiPhotobucket } from "react-icons/si";
 import { MdOutlineFoodBank } from "react-icons/md";
 
 function CreateItemContainer() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
+  const [quantity, setQuantity] = useState("");
   const [category, setCategory] = useState("Categories");
   const [imgCapture, setImgCapture] = useState(null);
   const [formFields, setFormFields] = useState(false);
@@ -87,7 +89,7 @@ function CreateItemContainer() {
   const saveDetails = () => {
     setIsLoading(true);
     try {
-      if (!title || !price || !category || !imgCapture) {
+      if (!title || !price || !category || !imgCapture || !quantity) {
         setFormFields(true);
         setStatusMsg("fields can't be empty");
         setStatus("failed");
@@ -111,6 +113,7 @@ function CreateItemContainer() {
           category: category,
           imgCapture: imgCapture,
           price: price,
+          quantity: quantity,
         };
         saveItem(data);
         setImgCapture(null);
@@ -141,6 +144,7 @@ function CreateItemContainer() {
     setCategory("Categories");
     setImgCapture(null);
     setPrice("");
+    setQuantity("");
   };
   const fetchData = async () => {
     await getAllFoodItems().then((data) => {
@@ -274,6 +278,20 @@ function CreateItemContainer() {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             placeholder="Price"
+            className="py-2 min-w-full text-base text-slate-600 bg-transparent outline-none rounded-sm"
+          />
+        </div>
+        {/* quantity */}
+        <div className="w-full px-3 border-b-2 border-white flex items-center gap-2 ">
+          <div>
+            <SiPhotobucket size={"25px"} />
+          </div>
+          <input
+            type="text"
+            required
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            placeholder="Quantity"
             className="py-2 min-w-full text-base text-slate-600 bg-transparent outline-none rounded-sm"
           />
         </div>
