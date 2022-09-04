@@ -3,7 +3,7 @@ import { categories } from "../utils/categories";
 
 function Sidemenu({ gotoSection }) {
   return (
-    <div className="pt-14 px-10 md:px-20 flex flex-col justify-center gap-4 border-r-2 sm:pt-0 sm:fixed sm:h-screen sm:flex-col">
+    <div className="pt-16 px-10 md:px-20 flex flex-col justify-center gap-4 border-r-2 sm:pt-0 sm:fixed sm:h-screen sm:flex-col">
       <p className="font-bold text-4xl"> Menu</p>
       <ul className="text-xl flex flex-wrap gap-3 mb-6 justify-around sm:mb-0 sm:flex-col">
         {categories.map((category, idx) => (

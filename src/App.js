@@ -34,7 +34,7 @@ function App() {
   const scrollToRef = useRef([]);
   const gotoSection = (idx) =>
     window.scrollTo({
-      top: scrollToRef.current[idx].offsetTop - 60,
+      top: scrollToRef.current[idx].offsetTop - 70,
       behavior: "smooth",
     });
 
