@@ -73,7 +73,7 @@ function App() {
         />
         <Route path="/services" element={<Services />} />
       </Routes>
-        {showCart && <Cart setShowCart={setShowCart}/>}
+        {showCart && <Cart setShowCart={setShowCart} showCart={showCart}/>}
     </div>
   );
 }
