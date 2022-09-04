@@ -21,4 +21,7 @@ html, body {
       scrollbar-width: none; /* Firefox */
     }
 }
+.active {
+  @apply before:bg-yellow-200;
+}
 @tailwind utilities;

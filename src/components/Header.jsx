@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
 import { BiShoppingBag, BiLogOut, BiLogIn } from "react-icons/bi";
@@ -27,7 +27,6 @@ function Header({ setShowCart }) {
       });
     }
   };
-
   return (
     <header className="fixed z-40 w-screen px-10 md:px-20 py-2 bg-grey-300 text-base bg-white">
       <div className="flex justify-between items-center ">
@@ -40,20 +39,29 @@ function Header({ setShowCart }) {
         <div className="flex w-full justify-center items-center">
           <div className="ml-6">
             <ul className="hidden md:flex gap-6 ">
-              <li className="px-2 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out">
-                <Link to="/" className="relative text-black">
-                  Home
-                </Link>
+              <li>
+                <NavLink
+                  to="/"
+                  className="px-2 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out"
+                >
+                  <span className="relative text-black">Home</span>
+                </NavLink>
               </li>
-              <li className="px-2 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out">
-                <Link to="/menu" className="relative text-black">
-                  Menu
-                </Link>
+              <li>
+                <NavLink
+                  to="/menu"
+                  className="px-2 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out"
+                >
+                  <span className="relative text-black">Menu</span>
+                </NavLink>
               </li>
-              <li className="px-2 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out">
-                <Link to="/services" className="relative text-black">
-                  Services
-                </Link>
+              <li>
+                <NavLink
+                  to="/services"
+                  className="px-2 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out"
+                >
+                  <span className="relative text-black">Services</span>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -82,29 +90,40 @@ function Header({ setShowCart }) {
               flex flex-col justify-center items-end gap-3 "
                 >
                   {user && (
-                    <div className="w-full pr-4 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out">
-                      <Link to="/addItem" className="relative">
-                        + add item
-                      </Link>
-                      {/* <div className='relative'>+ add item</div> */}
-                    </div>
+                    <NavLink
+                      to="/addItem"
+                      className="w-full pr-4 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out"
+                    >
+                      <span className="relative">+ add item</span>
+                    </NavLink>
                   )}
                   <ul className="md:hidden flex flex-col justify-center items-end gap-3 w-full">
-                    <li className="w-full pr-4 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out">
-                      <Link to="/" className="relative">
-                        Home
-                      </Link>
+                    <li className="w-full">
+                      <NavLink
+                        to="/"
+                        className="w-full pr-4 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out"
+                      >
+                        <span className="relative">Home</span>
+                      </NavLink>
                     </li>
-                    <li className="w-full pr-4 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out">
-                      <Link to="/menu" className="relative">
-                        Menu
-                      </Link>
+                    <li className="w-full">
+                      <NavLink
+                        to="/menu"
+                        className="w-full pr-4 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out"
+                      >
+                        <span className="relative">Menu</span>
+                      </NavLink>
                     </li>
-                    <li className="w-full pr-4 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out">
-                      <Link to="/services" className="relative">
-                        Services
-                      </Link>
+                    <li className="w-full">
+                      <NavLink
+                        to="/services"
+                        className="w-full pr-4 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out"
+                      >
+                        <span className="relative">Services</span>
+                      </NavLink>
                     </li>
+
+                    
                   </ul>
                   <p
                     className="bg-gray-500 w-full text-slate-200 py-2 px-4 rounded-b-md hover:bg-yellow-300 hover:text-slate-700 
