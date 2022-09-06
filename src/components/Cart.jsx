@@ -21,6 +21,14 @@ function Cart({ setShowCart, showCart }) {
       },
     });
   };
+
+  const clearCart = () => {
+    dispatch({
+      type: actType.EMPTY_CART,
+    });
+    localStorage.setItem("cart", JSON.stringify([]));
+  };
+
   useEffect(() => {
     setTotal(
       cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
@@ -33,11 +41,7 @@ function Cart({ setShowCart, showCart }) {
         <ImCross size={"18px"} onClick={() => setShowCart((prev) => !prev)} />
         <span
           className="cursor-pointer font-bold text-slate-200 bg-red-400 py-2 px-4 rounded-xl shadow-lg active:scale-90 transition-all ease-in-out duration-500 text-center"
-          onClick={() =>
-            dispatch({
-              type: actType.EMPTY_CART,
-            })
-          }
+          onClick={() => clearCart()}
         >
           Clear all
         </span>

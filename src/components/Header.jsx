@@ -25,7 +25,17 @@ function Header({ setShowCart }) {
         type: actType.SETTING_USER,
         payload: providerData[0],
       });
+      localStorage.setItem("user", JSON.stringify(providerData[0]));
     }
+  };
+
+  const logout = () => {
+    localStorage.clear();
+
+    dispatch({
+      type: actType.SETTING_USER,
+      user: null,
+    });
   };
   return (
     <header className="fixed z-40 w-screen px-10 md:px-20 py-2 bg-grey-300 text-base bg-white">
@@ -128,15 +138,14 @@ function Header({ setShowCart }) {
                   <p
                     className="bg-gray-500 w-full text-slate-200 py-2 px-4 rounded-b-md hover:bg-yellow-300 hover:text-slate-700 
                 "
-                    onClick={login}
                   >
                     {user ? (
-                      <span className="flex items-center justify-end gap-2">
+                      <span className="flex items-center justify-end gap-2" onClick={logout}>
                         <BiLogOut size={20} />
                         Logout
                       </span>
                     ) : (
-                      <span className="flex items-center justify-end gap-2">
+                      <span className="flex items-center justify-end gap-2" onClick={login}>
                         <BiLogIn size={20} />
                         LogIn
                       </span>

@@ -1,10 +1,16 @@
 import React, { useContext } from "react";
+import { useEffect } from "react";
 import { BsFillCartPlusFill, BsFillCartXFill } from "react-icons/bs";
 import { Context } from "../context/ContextProvider";
 import { actType } from "../context/reducer";
 
 function Card({ food }) {
   const [{ cart }, dispatch] = useContext(Context);
+
+  const updateLocalCart = () => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+  }
   const addToCart = (food) => {
     dispatch({
       type: actType.ADD_TO_CART,
@@ -17,6 +23,11 @@ function Card({ food }) {
       payload: food,
     });
   };
+
+  useEffect(() => {
+    updateLocalCart()
+  }, [cart])
+  
 
   return (
     <>
