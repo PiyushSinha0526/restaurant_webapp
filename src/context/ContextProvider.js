@@ -1,7 +1,8 @@
 import React, { useReducer, createContext } from "react";
-import {getUser, getCart} from "../utils/localStorage"
-const cartf = getCart()
-const userf = getUser()
+import { getUser, getCart } from "../utils/localStorage";
+const cartf = getCart();
+const userf = getUser();
+
 const initialState = {
   user: userf,
   foodItems: null,

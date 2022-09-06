@@ -1,6 +1,6 @@
 import React from "react";
 import homebg from "../img/HomeBg.png";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 function Hero() {
   return (
     <div className="h-full p-20 flex flex-col-reverse lg:h-screen lg:grid grid-cols-2 gap-6 justify-center items-center bg-slate-200">
@@ -19,7 +19,9 @@ function Hero() {
           adipisci atque alias dolorum iste voluptas!
         </p>
 
-        <Link to='/menu' className="w-fit font-bold text-slate-600 bg-yellow-200 py-2 px-4 rounded-xl shadow-lg hover:bg-slate-500 hover:text-yellow-200 active:scale-90 transition-all ease-in-out duration-500 " 
+        <Link
+          to="/menu"
+          className="w-fit font-bold text-slate-600 bg-yellow-200 py-2 px-4 rounded-xl shadow-lg hover:bg-slate-500 hover:text-yellow-200 active:scale-90 transition-all ease-in-out duration-500 "
         >
           Order Now
         </Link>

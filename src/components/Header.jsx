@@ -99,7 +99,7 @@ function Header({ setShowCart }) {
                   className="pt-3 absolute top-12 right-1 rounded-md outline w-36 text-end font-bold text-gray-500 bg-slate-300
               flex flex-col justify-center items-end gap-3 "
                 >
-                  {user && (
+                  {user && user.email === "iplay.alone26th@gmail.com" && (
                     <NavLink
                       to="/addItem"
                       className="w-full pr-4 cursor-pointer before:block before:absolute before:-inset-1 before:-skew-y-3 before:hover:bg-yellow-200 relative inline-block before:transition-all before:duration-300 before:ease-in-out"
@@ -132,20 +132,24 @@ function Header({ setShowCart }) {
                         <span className="relative">Services</span>
                       </NavLink>
                     </li>
-
-                    
                   </ul>
                   <p
                     className="bg-gray-500 w-full text-slate-200 py-2 px-4 rounded-b-md hover:bg-yellow-300 hover:text-slate-700 
                 "
                   >
                     {user ? (
-                      <span className="flex items-center justify-end gap-2" onClick={logout}>
+                      <span
+                        className="flex items-center justify-end gap-2"
+                        onClick={logout}
+                      >
                         <BiLogOut size={20} />
                         Logout
                       </span>
                     ) : (
-                      <span className="flex items-center justify-end gap-2" onClick={login}>
+                      <span
+                        className="flex items-center justify-end gap-2"
+                        onClick={login}
+                      >
                         <BiLogIn size={20} />
                         LogIn
                       </span>

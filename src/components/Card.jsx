@@ -9,8 +9,7 @@ function Card({ food }) {
 
   const updateLocalCart = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
-
-  }
+  };
   const addToCart = (food) => {
     dispatch({
       type: actType.ADD_TO_CART,
@@ -25,9 +24,8 @@ function Card({ food }) {
   };
 
   useEffect(() => {
-    updateLocalCart()
-  }, [cart])
-  
+    updateLocalCart();
+  }, [cart]);
 
   return (
     <>

@@ -13,16 +13,21 @@ function MainMenu({ foods, isLoading, scrollToRef }) {
                 key={category.id}
                 className="flex flex-col gap-2 font-bold py-4 pb-8 border-b-2 border-slate-600"
               >
-                <p className="text-3xl capitalize  mb-4" ref={el => scrollToRef.current[idx] = el} >
+                <p
+                  className="text-3xl capitalize  mb-4"
+                  ref={(el) => (scrollToRef.current[idx] = el)}
+                >
                   <span className="pb-2 border-b-4 border-yellow-200 flex w-fit">
-                  {category.name}
-                  <span className="w-32 h-1"></span>
-                    </span>
+                    {category.name}
+                    <span className="w-32 h-1"></span>
+                  </span>
                 </p>
                 <ul className="flex gap-6 w-full flex-wrap justify-center items-center md:justify-center">
                   {foods.map((food) => {
                     return (
-                      food.category === category.name && <Card key={food.id} food={food} />
+                      food.category === category.name && (
+                        <Card key={food.id} food={food} />
+                      )
                     );
                   })}
                 </ul>
